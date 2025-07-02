@@ -1,0 +1,6 @@
+#!/bin/sh
+
+. /tmp/r00.op-info
+
+rm -r $AUTH_FILE
+mv $AUTH_FILE_BAK $AUTH_FILE

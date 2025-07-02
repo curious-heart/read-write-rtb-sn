@@ -1,0 +1,6 @@
+#!/bin/sh
+
+. /tmp/r00.op-info
+
+cp -p $AUTH_FILE $AUTH_FILE_BAK
+cat /tmp/$AUTH_PUB_KEY_FILE_NAME >> $AUTH_FILE
