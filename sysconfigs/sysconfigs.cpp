@@ -33,7 +33,7 @@ static const char* gs_ini_key_local_udp_port = "local_udp_port";
 
 sys_configs_struct_t g_sys_configs_block;
 
-static const int gs_def_log_level = LOG_ERROR;
+static const int gs_def_log_level = LOG_INFO;
 
 static const int gs_def_max_pt_number = 200, gs_def_all_bytes_per_pt = 3,
                  gs_def_pkt_idx_byte_cnt = 2;

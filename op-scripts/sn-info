@@ -1,0 +1,12 @@
+#!/bin/sh
+
+##################### NOTE begin #####################
+# sn_addr and sn_len is based on the size and info of factory_blk_dev, which is currently 64KB (0x40000 ~ 0x50000) according to dts file.
+# if there would be any modifications to factory_blk_dev in future, PLZ CHECK if sn_addr and sn_len should be changed accordingly.
+##################### NOTE end   #####################
+
+#factory_blk_dev=/dev/mtd2
+factory_blk_dev=/tmp/mtd2-factory.bin
+#sn start address in factory_blk_dev. based on 0x0.
+sn_addr=0xff00
+sn_len=20

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+. /tmp/sn-info
+sn_str=$1
+echo -n $sn_str | dd of=${factory_blk_dev} count=1 bs=$((sn_len)) seek=$((sn_addr)) oflag=seek_bytes conv=notrunc conv=sync

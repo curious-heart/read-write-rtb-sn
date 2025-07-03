@@ -1,0 +1,9 @@
+#!/bin/sh
+
+#. /tmp/sn-info
+
+#echo -n $(dd if=${factory_blk_dev} count=1 bs=$((sn_len)) skip=$((sn_addr)) iflag=skip_bytes 2>/dev/null)
+
+. /tmp/sn-info
+sn=$(dd if=${factory_blk_dev} count=1 bs=$((sn_len)) skip=$((sn_addr)) iflag=skip_bytes 2>/dev/null)
+printf "%s" "$sn" | hexdump -v -e '1/1 "%02X "' | sed 's/ $//'

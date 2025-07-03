@@ -1,13 +1,9 @@
 @echo off
 
+call 00.dev-info.bat
+call 00.key-file-info.bat
+
 set LOCAL_WORK_DIR=.
-
-set AUTH_KEY_TYPE=ed25519
-set AUTH_KEY_FILE_NAME=id_ed25519_for_sn_op
-set AUTH_PUB_KEY_FILE_NAME=%AUTH_KEY_FILE_NAME%.pub
-
-set DEVICE_IP=10.10.18.1
-set DEVICE_USER=root
 
 set OP_INFO_SCPT=r00.op-info
 set UPD_AUTH_SCPT=r01.update-auth-key
