@@ -3,9 +3,14 @@
 #include <QDir>
 #include <QMessageBox>
 
+#include "logger/logger.h"
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "logger/logger.h"
+#include "sysconfigs/sysconfigs.h"
+
+static const char* gs_str_ascii_char = "ASCII字符";
+static const char* gs_str_exceed_max_allow_len = "超过允许的最大长度";
+static const char* gs_str_sn_len = "SN长度";
 
 static const char* gs_local_scpt_folder = "op-scripts";
 
@@ -56,6 +61,8 @@ MainWindow::MainWindow(QWidget *parent)
     m_cfg_recorder.load_configs_to_ui(this, m_cfg_filter_in, m_cfg_filter_out);
 
     sync_ui_items_display();
+
+    ui->snLenLbl->setText(QString("%1 %2").arg(g_sys_configs_block.sn_len).arg(gs_str_ascii_char));
 }
 
 MainWindow::~MainWindow()
@@ -96,6 +103,13 @@ void MainWindow::on_opPBtn_clicked()
             QMessageBox::critical(this, "", "SN不能为空");
             return;
         }
+        if(sn_str.length() > g_sys_configs_block.sn_len)
+        {
+            QMessageBox::critical(this, "", QString("%1:%2\n%3").arg(gs_str_sn_len)
+                                  .arg(sn_str.length()).arg(gs_str_exceed_max_allow_len));
+            return;
+        }
+
         m_write_proc->setArguments({"write-sn", sn_str});
         proc = m_write_proc;
     }
