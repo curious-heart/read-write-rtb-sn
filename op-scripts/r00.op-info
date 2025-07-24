@@ -15,4 +15,4 @@ AUTH_FILE_BAK=$AUTH_FILE-bak
 factory_blk_dev=/tmp/mtd2-factory.bin
 #sn start address in factory_blk_dev. based on 0x0.
 sn_addr=0xff00
-sn_len=20
+sn_len=8

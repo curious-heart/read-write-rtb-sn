@@ -1,7 +1,9 @@
 @echo off
 
-call 00.rmt-op-info.bat
+REM del known_hosts file to avoid error msg in ssh cmd.
+del /f /q "%USERPROFILE%\.ssh\known_hosts" 2>nul
 
+call 00.rmt-op-info.bat
 echo -------------
 echo REMOTE_SCPTS_WITH_RMT_DIR: %REMOTE_SCPTS_WITH_RMT_DIR%
 echo FILES_SENT_TO_RMT_WITH_LOCAL_DIR: %FILES_SENT_TO_RMT_WITH_LOCAL_DIR%
